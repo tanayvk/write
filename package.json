@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "generate-pwa-assets": "pwa-assets-generator --preset minimal-2023 assets/logo.svg"
   },
   "dependencies": {
     "@codemirror/lang-markdown": "^6.2.5",
@@ -16,11 +17,14 @@
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@pinia/nuxt": "^0.5.4",
     "@popperjs/core": "^2.11.8",
+    "@vite-pwa/assets-generator": "^0.2.5",
+    "@vite-pwa/nuxt": "^0.10.3",
     "@vlcn.io/crsqlite-wasm": "^0.16.0",
     "codemirror": "^6.0.1",
     "moment": "^2.30.1",
     "nanoid": "^5.0.7",
     "nuxt": "^3.13.0",
+    "nuxt-gtag": "^3.0.1",
     "peerjs": "^1.5.4",
     "pinia": "^2.2.2",
     "vue": "latest"

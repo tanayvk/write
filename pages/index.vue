@@ -103,7 +103,7 @@ const openSync = ref(false);
       </div>
       <div class="text-gray-800 dark:text-gray-400 flex items-center space-x-2">
         <UButton
-          to="https://github.com/tanayvk/workout-timer"
+          to="https://github.com/tanayvk/write"
           target="_blank"
           variant="ghost"
           color="gray"
