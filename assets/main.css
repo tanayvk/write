@@ -1,0 +1,50 @@
+body {
+  @apply font-mono;
+}
+
+.dark .cm-content * {
+  color: rgba(255, 255, 255, 0.5);
+  caret-color: white;
+}
+.dark .focus-highlight,
+.dark .focus-highlight * {
+  color: rgba(255, 255, 255, 1);
+}
+.light .cm-content {
+  color: rgba(0, 0, 0, 0.5);
+  caret-color: black;
+}
+.light .focus-highlight,
+.light .focus-highlight * {
+  color: rgba(0, 0, 0, 1);
+}
+
+.cm-content {
+  @apply font-mono;
+}
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar,
+.cm-scroller::-webkit-scrollbar {
+  display: none;
+}
+/* For IE, Edge and Firefox */
+.scrollbar-hide,
+.cm-scroller {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.timestamp {
+  @apply text-xl opacity-20;
+  line-height: 27px;
+  padding-right: 15px;
+}
+
+.timestamp[data-popper-reference-hidden] {
+  display: none;
+}
+
+.last-line {
+  @apply bg-dust-50 dark:bg-white/5;
+}
