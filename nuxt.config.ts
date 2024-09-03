@@ -18,9 +18,9 @@ export default defineNuxtConfig({
       "/*": { prerender: true },
     },
   },
-  // gtag: {
-  //   id: "",
-  // },
+  gtag: {
+    id: "G-95LZ059684",
+  },
   pwa: {
     strategies: "generateSW",
     registerWebManifestInRouteRules: true,
