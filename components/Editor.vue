@@ -13,6 +13,13 @@ const lastLineHighlight = Decoration.line({
   attributes: { class: "last-line" },
 });
 
+const copied = ref(false);
+function copy() {
+  const text = editor.state.doc.toString();
+  navigator.clipboard.writeText(text);
+  copied.value = true;
+}
+
 function findCurrentSentence(text, pos) {
   const beforeCursor = text.slice(0, pos);
   const afterCursor = text.slice(Math.max(0, pos - 1));
@@ -313,6 +320,19 @@ onUnmounted(() => {
         <UBadge variant="subtle">{{ sessionTime }}</UBadge>
         <UBadge variant="outline">{{ sessionWords }}</UBadge>
       </div>
+    </div>
+    <div class="fixed top-2 right-2">
+      <UTooltip
+        :text="copied ? 'Copied!' : 'Copy to clipboard'"
+        :popper="{ placement: 'left', arrow: true }"
+      >
+        <UButton
+          icon="i-ic-baseline-content-copy"
+          @click="copy"
+          @mouseout="copied = false"
+          variant="outline"
+        />
+      </UTooltip>
     </div>
   </div>
 </template>

@@ -18,6 +18,13 @@ function del(writing) {
   writing.deleting = true;
   deleteWritingByID(writing.id);
 }
+const copied = ref(false);
+async function copy(id) {
+  const { texts, current } = await getWritingText(id);
+  const text = texts.map(({ text }) => text).join("") + current;
+  navigator.clipboard.writeText(text);
+  copied.value = true;
+}
 const openSync = ref(false);
 </script>
 <template>
@@ -69,6 +76,19 @@ const openSync = ref(false);
                 }}</UButton
               ></span
             >
+            <UTooltip
+              :text="copied ? 'Copied!' : 'Copy to clipboard'"
+              :popper="{ placement: 'top', arrow: true }"
+            >
+              <UButton
+                class="p-0 text-md hidden group-hover:block"
+                color="green"
+                variant="link"
+                @click="copy(writing.id)"
+                @mouseout="copied = false"
+                >Copy</UButton
+              >
+            </UTooltip>
             <span
               ><UButton
                 class="p-0 text-md hidden group-hover:block"
