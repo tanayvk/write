@@ -1,75 +1,29 @@
-# Nuxt 3 Minimal Starter
+# [write.tanay.xyz](https://write.tanay.xyz)
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A minimalist, local-first, distraction-free writing app that works entirely in the browser.
 
-## Setup
+## Features
 
-Make sure to install the dependencies:
+- **Focused Writing Mode**
+  - Highlights the current sentence for enhanced focus.
+  - Dims previous lines and paragraphs to minimize distractions.
+  - Hemingway mode prevents deleting more than the last 3 words.
 
-```bash
-# npm
-npm install
+- **Session Tracking**
+  - Monitor your writing sessions.
+  - Track progress with session time and word count metrics.
 
-# pnpm
-pnpm install
+- **Progressive Web App (PWA)**
+  - Fully functional offline.
+  - No sign-up required.
 
-# yarn
-yarn install
+- **Local-First with P2P Sync**
+  - Stores data locally in your browser.
+  - Optional peer-to-peer sync using PeerJS and cr-sqlite.
 
-# bun
-bun install
-```
+- **Light/Dark Mode**
+  - Switch between light and dark themes, powered by Nuxt UI.
 
-## Development Server
+## License
 
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Licensed under the [Fair Source License (FSL)](https://fsl.software/), [Fair-source](https://fair.io/).
