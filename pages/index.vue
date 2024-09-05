@@ -14,9 +14,12 @@ onMounted(() => {
 function go(id) {
   useRouter().push(`/editor/${id}`);
 }
+const deleteWriting = ref(null),
+  showDeleteConfirm = ref(false);
 function del(writing) {
   writing.deleting = true;
   deleteWritingByID(writing.id);
+  showDeleteConfirm.value = false;
 }
 const copied = ref(false);
 async function copy(id) {
@@ -26,6 +29,7 @@ async function copy(id) {
   copied.value = true;
 }
 const openSync = ref(false);
+const openStats = ref(false);
 </script>
 <template>
   <div class="w-screen h-screen flex flex-col">
@@ -35,6 +39,12 @@ const openSync = ref(false);
         variant="ghost"
         icon="i-heroicons-arrow-path"
         @click="openSync = true"
+      />
+      <UButton
+        color="gray"
+        variant="ghost"
+        icon="i-heroicons-chart-bar"
+        @click="openStats = true"
       />
       <DarkModeSwitch />
     </nav>
@@ -94,7 +104,10 @@ const openSync = ref(false);
                 class="p-0 text-md hidden group-hover:block"
                 color="red"
                 variant="link"
-                @click="del(writing)"
+                @click="
+                  showDeleteConfirm = true;
+                  deleteWriting = writing;
+                "
                 >Delete</UButton
               ></span
             >
@@ -140,4 +153,40 @@ const openSync = ref(false);
     </footer>
   </div>
   <UModal v-model="openSync"><Sync /> </UModal>
+  <UModal
+    v-model="openStats"
+    :ui="{ width: 'w-full sm:max-w-lg lg:max-w-2xl xl:max-w-4xl' }"
+    ><Stats />
+  </UModal>
+  <UModal v-model="showDeleteConfirm">
+    <UCard>
+      <template #header>
+        <div class="flex items-center gap-2 text-red-400">
+          <UIcon name="i-heroicons-trash" />
+          <span class="font-medium">Delete Writing</span>
+        </div>
+      </template>
+      <div class="space-y-2">
+        <div>Are you sure you want to delete this writing?</div>
+        <div class="font-medium text-primary">
+          {{
+            moment.utc(deleteWriting.created_at).local().format("MMMM D, YYYY")
+          }}
+        </div>
+      </div>
+      <template #footer>
+        <div class="space-x-2">
+          <UButton @click="del(deleteWriting)" color="red" variant="outline"
+            >Yes</UButton
+          >
+          <UButton
+            @click="showDeleteConfirm = false"
+            variant="link"
+            color="white"
+            >No</UButton
+          >
+        </div>
+      </template>
+    </UCard>
+  </UModal>
 </template>

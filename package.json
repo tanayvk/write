@@ -17,16 +17,20 @@
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@pinia/nuxt": "^0.5.4",
     "@popperjs/core": "^2.11.8",
+    "@unovis/ts": "^1.4.3-beta.0",
+    "@unovis/vue": "^1.4.3-beta.0",
     "@vite-pwa/assets-generator": "^0.2.5",
     "@vite-pwa/nuxt": "^0.10.3",
     "@vlcn.io/crsqlite-wasm": "^0.16.0",
     "codemirror": "^6.0.1",
+    "date-fns": "^3.6.0",
     "moment": "^2.30.1",
     "nanoid": "^5.0.7",
     "nuxt": "^3.13.0",
     "nuxt-gtag": "^3.0.1",
     "peerjs": "^1.5.4",
     "pinia": "^2.2.2",
+    "v-calendar": "^3.1.2",
     "vue": "latest"
   }
 }

@@ -251,3 +251,13 @@ export const deleteWritingByID = async (id: string) => {
   await db.exec("DELETE FROM writing WHERE id = ?", [id]);
   updateWritings();
 };
+
+export const getSessionsInRange = async (from: Date, to: Date) => {
+  const db = getDB();
+  return await db.execO(
+    `SELECT (LENGTH(text) - LENGTH(REPLACE(text, ' ', '')) + CAST(LENGTH(text) > 0 AS INT)) as words,
+    created_at FROM text WHERE created_at >= datetime(?, 'unixepoch')
+    AND created_at <= datetime(?, 'unixepoch') ORDER BY created_at`,
+    [Math.floor(from.getTime() / 1000), Math.floor(to.getTime() / 1000)],
+  );
+};
