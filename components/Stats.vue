@@ -122,6 +122,9 @@ const totalTime = computed(() =>
 const x = (_, i) => i;
 const y = (d) => (tab.value === 0 ? d.words : d.duration);
 const xTicks = (i: number) => {
+  if (!data.value[i]) {
+    return "";
+  }
   return moment(data.value[i].date).calendar();
 };
 const template = (d) =>
