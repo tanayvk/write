@@ -1,7 +1,7 @@
 <script setup>
+const modes = ["system", "light", "dark"];
 const colorMode = useColorMode();
 const switchMode = () => {
-  const modes = ["system", "light", "dark"];
   colorMode.preference =
     modes[(modes.indexOf(colorMode.preference) + 1) % modes.length];
 };
@@ -12,10 +12,17 @@ const icons = {
 };
 </script>
 <template>
-  <UButton
-    color="gray"
-    variant="ghost"
-    @click="switchMode"
-    :icon="icons[colorMode.preference]"
-  />
+  <UTooltip
+    :text="`Switch to ${
+      modes[(modes.indexOf(colorMode.preference) + 1) % modes.length]
+    } mode`"
+    :popper="{ arrow: true }"
+  >
+    <UButton
+      color="gray"
+      variant="ghost"
+      @click="switchMode"
+      :icon="icons[colorMode.preference]"
+    />
+  </UTooltip>
 </template>

@@ -34,18 +34,22 @@ const openStats = ref(false);
 <template>
   <div class="w-screen h-screen flex flex-col">
     <nav class="fixed right-0 top-0 h-12 flex items-center px-2 space-x-1">
-      <UButton
-        color="gray"
-        variant="ghost"
-        icon="i-heroicons-arrow-path"
-        @click="openSync = true"
-      />
-      <UButton
-        color="gray"
-        variant="ghost"
-        icon="i-heroicons-chart-bar"
-        @click="openStats = true"
-      />
+      <UTooltip text="Sync with other devices" :popper="{ arrow: true }">
+        <UButton
+          color="gray"
+          variant="ghost"
+          icon="i-heroicons-arrow-path"
+          @click="openSync = true"
+        />
+      </UTooltip>
+      <UTooltip text="See stats" :popper="{ arrow: true }">
+        <UButton
+          color="gray"
+          variant="ghost"
+          icon="i-heroicons-chart-bar"
+          @click="openStats = true"
+        />
+      </UTooltip>
       <DarkModeSwitch />
     </nav>
     <div
